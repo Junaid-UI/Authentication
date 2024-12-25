@@ -268,7 +268,7 @@ function showUserDetails() {
                 showName.textContent = `Name : ${userLogData.name}`
             }
             if(showEmail) {
-                showEmail.textContent = `Name : ${userLogData.email}`
+                showEmail.textContent = `Email : ${userLogData.email}`
             }
         }
     
