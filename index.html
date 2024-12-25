@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="output.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+</head>
+<body>
+    <nav class="h-20 shadow-md z-10 shadow-slate-300 flex justify-between px-8 items-center">
+        <div><h1 class="font-sans font-extrabold text-2xl lg:text-4xl">Log/Reg</h1></div>
+        <div id="showOption" class="lg:hidden cursor-pointer"><i class='bx bx-menu-alt-right bx-tada text-4xl'></i></div>
+        <div class="hidden lg:block">
+            <button id="login" class="cursor-pointer font-sans py-2 px-8 border-2 border-solid border-black rounded-md hover:bg-black hover:text-white hover:transition-all">Login</button>
+            <button id="register" class="cursor-pointer font-sans py-2 px-8 border-2 border-solid border-black rounded-md hover:bg-black hover:text-white hover:transition-all ml-6">Register</button>
+        </div> 
+    </nav>
+
+    <div class="text-center mt-40">
+        <h1 class="font-sans font-s lg:font-bold text-2xl lg:text-4xl mb-8 leading-10">If you don't have an account , Register Now</h1>
+        <p class="lg:text-2xl text-lg font-semibold ">Already have an account, Login</p>
+    </div>
+
+    <div id="optionContainer" class="lg:hidden z-0 showoption w-full h-72 bg-white absolute top-[90px] px-4 transition-all scale-100 pointer-events-auto">
+        <button id="login2" class="block w-full text-start text-xl font-semibold cursor-pointer font-sans py-4 pl-10 rounded-md hover:bg-gray-200  hover:transition-all mb-2">Login</button>
+        <button id="register2" class="block w-full text-xl font-semibold text-start cursor-pointer font-sans py-4 pl-10 rounded-md hover:bg-gray-200  hover:transition-all">Register</button>
+    </div>
+
+    <div id="overlay" class="absolute hidden top-0 right-0 left-0 bottom-0 bg-black opacity-70"></div>
+
+    <form id="regForm" class="reg-form opacity-0 hidden min-w-[350px] max-w-[26%] h-auto p-6 bg-white rounded-xl absolute top-1/2 left-1/2 pt-0 -translate-x-2/4 -translate-y-2/4 transform">
+        <p class="my-4 font-sans font-medium text-2xl uppercase text-center mb-6">Register</p>
+        <div class="mb-7"> 
+            <input class="w-full h-12 rounded-xl border-2 border-gray-400 p-4 focus:shadow-[0_0px_0px_6px_rgba(13,110,253,.25)] focus:border-[rgba(13,110,253,.25)] outline-none focus:border-black-300" type="text" placeholder="Enter Your Name" name="name">
+            <p id="nameError" class=" hidden text-xs text-red-600 ml-2 mt-1">Please enter your name </p>
+        </div>
+        
+        <div class="mb-7">
+            <input class="w-full h-12 rounded-xl border-2 border-gray-400 p-4 focus:shadow-[0_0px_0px_6px_rgba(13,110,253,.25)] focus:border-[rgba(13,110,253,.25)] outline-none focus:border-black-300" type="email" placeholder="Enter Your Email" name="email">
+            <p id="emailError" class=" hidden text-xs text-red-600 ml-2 mt-1">Please enter your email </p>
+        </div>
+
+        <div>
+            <input class="w-full h-12 rounded-xl border-2 border-gray-400 p-4 focus:shadow-[0_0px_0px_6px_rgba(13,110,253,.25)] focus:border-[rgba(13,110,253,.25)] outline-none focus:border-black-300" type="password" placeholder="Enter Your Password" name="password">
+            <p id="passwordError" class=" hidden text-xs text-red-600 ml-2 mt-1">Please enter your password </p>
+        </div>
+
+        <div class="mt-7 flex justify-center">
+            <button type="submit" class="py-3 px-8 bg-blue-500 text-white rounded-md">Submit</button>
+        </div>
+
+        <p class="my-5 text-center text-sm">already have an account, <a id="logLink" href="" class="text-blue-600 underline">Login</a></p>
+
+    </form>
+
+
+    <form id="LogForm" class="reg-form z-20 opacity-0 hidden min-w-[350px] max-w-[26%] h-auto p-6 bg-white rounded-xl absolute top-1/2 left-1/2 pt-0 -translate-x-2/4 -translate-y-2/4 transform">
+        <p class="my-4 font-sans font-medium text-2xl uppercase text-center mb-6">Login</p>
+
+        <div class="mb-7">
+            <input class="w-full h-12 rounded-xl border-2 border-gray-400 p-4 focus:shadow-[0_0px_0px_6px_rgba(13,110,253,.25)] focus:border-[rgba(13,110,253,.25)] outline-none focus:border-black-300" type="email" placeholder="Enter Your Email" name="email">
+            <p id="emailErrorL" class=" hidden text-xs text-red-600 ml-2 mt-1">Please enter Correct email </p>
+        </div>
+
+        <div>
+            <input class="w-full h-12 rounded-xl border-2 border-gray-400 p-4 focus:shadow-[0_0px_0px_6px_rgba(13,110,253,.25)] focus:border-[rgba(13,110,253,.25)] outline-none focus:border-black-300" type="password" placeholder="Enter Your Password" name="password">
+            <p id="passwordErrorL" class=" hidden text-xs text-red-600 ml-2 mt-1">Please enter Correct password </p>
+        </div>
+
+        <div class="mt-7 flex justify-center">
+            <button type="submit" class="py-3 px-8 bg-blue-500 text-white rounded-md">Submit</button>
+        </div>
+
+        <p class="my-5 text-center">you don't have an account, <a id="RegLink" href="" class="text-blue-600 underline">Register Now </a></p>
+
+    </form>
+      
+</body>
+</html>
